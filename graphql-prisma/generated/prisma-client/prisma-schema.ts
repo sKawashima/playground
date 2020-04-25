@@ -109,6 +109,7 @@ input CompanyWhereInput {
 
 input CompanyWhereUniqueInput {
   id: ID
+  name: String
 }
 
 scalar Long

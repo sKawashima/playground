@@ -152,6 +152,7 @@ export type MutationType = "CREATED" | "UPDATED" | "DELETED";
 
 export type CompanyWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
+  name?: Maybe<String>;
 }>;
 
 export interface UserWhereInput {

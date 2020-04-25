@@ -1,0 +1,5 @@
+# import Movie from "book.graphql"
+
+type Query {
+  books: [Book]
+}

@@ -1,0 +1,10 @@
+type User {
+  id: ID! @id
+  name: String!
+}
+
+type Company {
+  id: ID! @id
+  name: String! @unique
+  users: [User!]! @relation(link: INLINE)
+}

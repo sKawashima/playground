@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const microrouter_1 = require("microrouter");
 const apollo_server_micro_1 = require("apollo-server-micro");
 const graphql_tools_1 = require("graphql-tools");
+const graphql_import_1 = require("graphql-import");
 const mockData = [
     {
         author: 'ちゃーりー',
@@ -13,16 +14,8 @@ const mockData = [
         title: 'なまこをきんしするはなし'
     }
 ];
-const typeDefs = apollo_server_micro_1.gql `
-type Book {
-  title: String
-  author: String
-}
-
-type Query {
-  books: [Book]
-}
-`;
+const typeDefs = graphql_import_1.importSchema('src/typeDefs/schema.graphql');
+console.log(typeDefs);
 const resolvers = {
     Query: {
         books: () => mockData

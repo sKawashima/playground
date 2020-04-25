@@ -1,7 +1,8 @@
 import {send} from 'micro'
 import {get, post, router} from 'microrouter'
 import {ApolloServer, gql} from 'apollo-server-micro'
-import {makeExecutableSchema} from 'graphql-tools'
+import { makeExecutableSchema } from 'graphql-tools'
+import {importSchema} from 'graphql-import'
 
 const mockData = [
   {
@@ -14,16 +15,9 @@ const mockData = [
   }
 ]
 
-const typeDefs = gql`
-type Book {
-  title: String
-  author: String
-}
+const typeDefs = importSchema('src/typeDefs/schema.graphql')
 
-type Query {
-  books: [Book]
-}
-`
+console.log(typeDefs)
 
 const resolvers = {
   Query: {

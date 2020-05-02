@@ -1,0 +1,14 @@
+service: AppSyncTest
+
+provider:
+  name: aws
+  region: ap-northeast-1
+
+plugins:
+  - serverless-appsync-plugin
+
+custom:
+  appSync:
+    name: AppSyncTest
+    authenticationType: API_KEY   # AppSyncの認証タイプ
+    schema: graphql/schema.graphql
